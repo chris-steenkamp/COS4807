@@ -1,0 +1,34 @@
+digraph G {
+    splines="FALSE";
+    edge [
+        arrowhead="none"
+    ];
+
+    node [
+        shape="none"
+    ]
+
+    x1 [label=""]
+    x2 [label=""]
+    // x3 [label=""]
+    // x4 [label=""]
+    // x5 [label=""]
+    // x6 [label=""]
+
+    l0 [label="¬(((p ∨ q) → r) → (p → (q ∨ r)))"]
+    l1 [label="(p ∨ q) → r, ¬(p → (q ∨ r))"]
+    l2 [label="(p ∨ q) → r, p, ¬(q ∨ r)"]
+    l3 [label="(p ∨ q) → r, p, ¬q, ¬r"]
+
+    l0 -> l1 -> l2 -> l3
+
+    l31 [label="¬(p ∨ q), p, ¬q, ¬r"]
+    l32 [label="r, p, ¬q, ¬r"]
+    l311 [label="¬p, ¬q, p, ¬q, ¬r"]
+
+    l3 -> l31 -> l311
+    l311 -> x1 [label="×" color=white]
+    l3 -> l32
+    l32 -> x2 [label="×" color=white]
+    
+}

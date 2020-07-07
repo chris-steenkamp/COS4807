@@ -1,0 +1,65 @@
+digraph G {
+    splines="FALSE";
+    edge [
+        arrowhead="none"
+    ];
+
+    node [
+        shape="none"
+    ]
+
+    x1 [label=""]
+    x2 [label=""]
+    x3 [label=""]
+    x4 [label=""]
+    x5 [label=""]
+    x6 [label=""]
+
+    root [label="(p ↔ q) ∧ (p ↔ ¬q)"]
+    l1 [label="p ↔ q, p ↔ ¬q"]
+    root -> l1
+    l2 [label="p → q, q → p, p ↔ ¬q"]
+    l1 -> l2
+    l3 [label="p → q, q → p, p → ¬q, ¬q → p"]
+    l2 -> l3
+
+    l31 [label="¬p, q → p, p → ¬q, ¬q → p"]
+    l32 [label="q, q → p, p → ¬q, ¬q → p"]
+    l3 -> l31
+    l3 -> l32
+
+    l311 [label="¬p, ¬q, p → ¬q, ¬q → p"]
+    l312 [label="¬p, p, p → ¬q, ¬q → p"]
+
+    l31 -> l311
+    l31 -> l312
+    l312 -> x1 [label="×" color=white]
+
+    l3111 [label="¬p, ¬q, p → ¬q, ¬¬q"]
+    l3112 [label="¬p, ¬q, p → ¬q, p"]
+    l3111n [label="¬p, ¬q, p → ¬q, q"]
+
+    l311 -> l3111 -> l3111n
+    l3111n -> x3 [label="×" color=white]
+    l311 -> l3112
+    l3112 -> x2 [label="×" color=white]
+
+    l321 [label="q, q → p, ¬p, ¬q → p"]
+    l322 [label="q, q → p, ¬q, ¬q → p"]
+
+    l32 -> l321
+    l32 -> l322
+    l322 -> x4 [label="×" color=white]
+
+    l3211 [label="q, ¬q, ¬p, ¬q → p"]
+    l3212 [label="q, p, ¬p, ¬q → p"]
+
+    l321 -> l3211
+    l3211 -> x5 [label="×" color=white]
+    l321 -> l3212
+    l3212 -> x6 [label="×" color=white]
+
+
+    /* Ranks */
+    // { rank=same; shortName; };
+}

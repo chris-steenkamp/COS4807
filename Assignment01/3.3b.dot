@@ -1,0 +1,59 @@
+digraph G {
+    splines="FALSE";
+    edge [
+        arrowhead="none"
+    ];
+
+    node [
+        shape="none"
+    ]
+
+    o1 [label=""]
+    o2 [label=""]
+    // o3 [label=""]
+    // o4 [label=""]
+    // o5 [label=""]
+    // o6 [label=""]
+    x1 [label=""]
+    x2 [label=""]
+    x3 [label=""]
+
+    l0 [label="¬(((p ∧ q) → r) → (p → (q ∧ r)))"]
+    l1 [label="(p ∧ q) → r, ¬(p → (q ∧ r))"]
+    l2 [label="(p ∧ q) → r, p, ¬(q ∧ r)"]
+    l21 [label="¬(p ∧ q), p, ¬(q ∧ r)"]
+    l211 [label="¬p, p, ¬(q ∧ r)"]
+    l212 [label="¬q, p, ¬(q ∧ r)"]
+    l2121 [label="¬q, p, ¬q"]
+    l2122 [label="¬q, p, ¬r"]
+    l22 [label="r, p, ¬(q ∧ r)"]
+    l221 [label="r, p, ¬q"]
+    l222 [label="r, p, ¬r"]
+
+    // l01 [label="¬((p ∧ q) → r)"]
+    // l02 [label="p → (q ∧ r)"]
+    // l011 [label="p ∧ q,¬r"]
+    // l0111 [label="p,q,¬r"]
+    // l021 [label="¬p"]
+    // l022 [label="q ∧ r"]
+    // l0221 [label="q,r"]
+
+    // l2 [label="(p∨q) → r,p, ¬(q∨r)"]
+    // l3 [label="(p∨q) → r,p, ¬q, ¬r"]
+
+    l0 -> l1 -> l2 -> l21, l22
+    l21 -> l211, l212
+    l211 -> x2 [label="×" color=white]
+    l212 -> l2121, l2122
+    l2121 -> x3 [label="×" color=white]
+    l2122 -> o2 [label="⊙" color=white]
+    l22 -> l221, l222
+    l221 -> o1 [label="⊙" color=white]
+    l222 -> x1 [label="×" color=white]
+    // l0111 -> o1 [label="⊙" color=white]
+    // l0 -> l02 -> l021
+    // l021 -> o2 [label="⊙" color=white]
+    // l02 -> l022 -> l0221
+    // l0221 -> o3 [label="⊙" color=white]
+    
+}
