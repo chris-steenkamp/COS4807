@@ -1,0 +1,29 @@
+digraph G {
+    splines="FALSE";
+    edge [arrowhead=vee arrowsize=0.5]
+    node [shape="none"]
+    l711 [label=""]
+    l722 [label=""]
+    // x1 [label=""]
+
+    l1 [label="¬(∀x∃y(p(x,y) ∧ ¬p(y,x)) → ∃x∀y(p(x,y) ∧ ¬p(y,x)))"]
+    l2 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)), ¬∃x∀y(p(x,y) ∧ ¬p(y,x))"]
+    l3 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)), ∃y(p(a,y) ∧ ¬p(y,a)), ¬∃x∀y(p(x,y) ∧ ¬p(y,x))"]
+    l4 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)), ∃y(p(a,y) ∧ ¬p(y,a)), ¬∃x∀y(p(x,y) ∧ ¬p(y,x)), ¬∀y(p(a,y) ∧ ¬p(y,a))"]
+    l5 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)), p(a,b) ∧ ¬p(b,a), ¬∃x∀y(p(x,y) ∧ ¬p(y,x)), ¬∀y(p(a,y) ∧ ¬p(y,a))"]
+    l6 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)), p(a,b) ∧ ¬p(b,a), ¬∃x∀y(p(x,y) ∧ ¬p(y,x)), ¬(p(a,c) ∧ ¬p(c,a))"]
+    l7 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)), p(a,b), ¬p(b,a), ¬∃x∀y(p(x,y) ∧ ¬p(y,x)), ¬(p(a,c) ∧ ¬p(c,a))"]
+    l71 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)), p(a,b), ¬p(b,a), ¬∃x∀y(p(x,y) ∧ ¬p(y,x)), ¬p(a,c)"]
+
+    l72 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)), p(a,b), ¬p(b,a), ¬∃x∀y(p(x,y) ∧ ¬p(y,x)), ¬¬p(c,a)"]
+    l721 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)), p(a,b), ¬p(b,a), ¬∃x∀y(p(x,y) ∧ ¬p(y,x)), p(c,a)"]
+
+    l1 -> l2 -> l3 -> l4 -> l5 -> l6 -> l7 -> {l71, l72}
+    l71 -> l711 [label="⊙" color=white]
+    l72 -> l721
+    l721 -> l722 [label="⊙" color=white]
+
+    // l1 -> o1 [label="⊙" color=white]
+    // l1 -> x1 [label="×" color=white]
+
+}

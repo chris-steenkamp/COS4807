@@ -2,7 +2,7 @@ digraph G {
     splines="FALSE";
     edge [arrowhead=vee arrowsize=0.5]
     node [shape="none"]
-    o1 [label=""]
+    // o1 [label=""]
     x1211 [label=""]
     x1222 [label=""]
     x2310 [label=""]
