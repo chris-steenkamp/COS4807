@@ -1,0 +1,24 @@
+digraph G {
+    splines="FALSE";
+    edge [arrowhead="vee" arrowsize=0.5]
+    node [shape="none"]
+    
+    x1 [label=""]
+    x2 [label=""]
+
+    l0 [label="¬(∃x¬(p(x) → q(x)) → ¬(∃xp(x) → ∀xq(x)))"]
+    l1 [label="∃x¬(p(x) → q(x)), ¬¬(∃xp(x) → ∀xq(x))"]
+    l2 [label="∃x¬(p(x) → q(x)), ∃xp(x) → ∀xq(x)"]
+    l3 [label="¬(p(a) → q(a)), ∃xp(x) → ∀xq(x)"]
+    l4 [label="p(a), ¬q(a), ∃xp(x) → ∀xq(x)"]
+    l41 [label="p(a), ¬q(a), ¬∃xp(x)"]
+    l411 [label="p(a), ¬q(a), ¬p(a), ¬∃xp(x)"]
+    l42 [label="p(a), ¬q(a), ∀xq(x)"]
+    l421 [label="p(a), ¬q(a), q(a), ∀xq(x)"]
+
+    l0 -> l1 -> l2 -> l3 -> l4 -> {l41,l42}
+    l41 -> l411 
+    l411-> x1 [label="×" color=white]
+    l42 -> l421
+    l421 -> x2 [label="×" color=white]
+}
