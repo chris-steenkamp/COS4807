@@ -1,0 +1,46 @@
+digraph G {
+    splines="FALSE";
+    edge [arrowhead=vee arrowsize=0.5]
+    node [shape="none"]
+    o1 [label=""]
+    x11314 [label=""]
+    x11324 [label=""]
+    x12314 [label=""]
+    x12324 [label=""]
+
+    l00000 [label="∃x∃yp(x,y) ↔ ∀x∀y¬p(x,y)"]
+    l10000 [label="∃x∃yp(x,y) → ∀x∀y¬p(x,y), ∀x∀y¬p(x,y) → ∃x∃yp(x,y)"]
+    l11000 [label="∃x∃yp(x,y) → ∀x∀y¬p(x,y), ¬(∀x∀y¬p(x,y))"]
+    l11100 [label="∃x∃yp(x,y) → ∀x∀y¬p(x,y), ¬∀y¬p(a,y)"]
+    l11200 [label="∃x∃yp(x,y) → ∀x∀y¬p(x,y), ¬¬p(a,b)"]
+    l11300 [label="∃x∃yp(x,y) → ∀x∀y¬p(x,y), p(a,b)"]
+    l11311 [label="¬∃x∃yp(x,y), p(a,b)"]
+    l11312 [label="¬∃x∃yp(x,y), ¬∃yp(a,y), p(a,b)"]
+    l11313 [label="¬∃x∃yp(x,y), ¬∃yp(a,y), ¬p(a,b), p(a,b)"]
+    l11321 [label="∀x∀y¬p(x,y), p(a,b)"]
+    l11322 [label="∀x∀y¬p(x,y), ∀y¬p(a,y), p(a,b)"]
+    l11323 [label="∀x∀y¬p(x,y), ∀y¬p(a,y), ¬p(a,b), p(a,b)"]
+    l12000 [label="∃x∃yp(x,y) → ∀x∀y¬p(x,y), ∃x∃yp(x,y)"]
+    l12100 [label="∃x∃yp(x,y) → ∀x∀y¬p(x,y), ∃yp(a,y)"]
+    l12200 [label="∃x∃yp(x,y) → ∀x∀y¬p(x,y), p(a,b)"]
+    l12210 [label="¬∃x∃yp(x,y), p(a,b)"]
+    l12312 [label="¬∃x∃yp(x,y), ¬∃yp(a,y), p(a,b)"]
+    l12313 [label="¬∃x∃yp(x,y), ¬∃yp(a,y), ¬p(a,b), p(a,b)"]
+    l12220 [label="∀x∀y¬p(x,y), p(a,b)"]
+    l12322 [label="∀x∀y¬p(x,y), ∀y¬p(a,y), p(a,b)"]
+    l12323 [label="∀x∀y¬p(x,y), ∀y¬p(a,y), ¬p(a,b), p(a,b)"]
+
+
+    l00000 -> l10000 -> {l11000, l12000}
+    l11000 -> l11100 -> l11200 -> l11300 -> {l11311, l11321}
+    l11311 -> l11312 -> l11313
+    l11321 -> l11322 -> l11323
+    l11313 -> x11314 [label="×" color=white]
+    l11323 -> x11324 [label="×" color=white]
+    l12000 -> l12100 -> l12200 -> {l12210, l12220}
+    l12210 -> l12312 -> l12313
+    l12220 -> l12322 -> l12323
+    l12313 -> x12314 [label="×" color=white]
+    l12323 -> x12324 [label="×" color=white]
+
+}
