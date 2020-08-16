@@ -10,15 +10,15 @@ digraph G {
     l0000 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)) → ∃x∀y(p(x,y) ∧ ¬p(y,x))"]
     l1000 [label="¬(∀x∃y(p(x,y) ∧ ¬p(y,x)))"]
     l1100 [label="¬∃y(p(a,y) ∧ ¬p(y,a))"]
-    l1200 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), ¬(p(a,b) ∧ ¬p(b,a))"]
-    l1210 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), ¬p(a,b)"]
-    l1220 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), ¬¬p(b,a)"]
-    l1221 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), p(b,a)"]
+    l1200 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), ¬(p(a,a) ∧ ¬p(a,a))"]
+    l1210 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), ¬p(a,a)"]
+    l1220 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), ¬¬p(a,a)"]
+    l1221 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), p(a,a)"]
     
     l2000 [label="∃x∀y(p(x,y) ∧ ¬p(y,x))"]
     l2100 [label="∀y(p(a,y) ∧ ¬p(y,a))"]
-    l2200 [label="∀y(p(a,y) ∧ ¬p(y,a)), p(a,b) ∧ ¬p(b,a)"]
-    l2300 [label="∀y(p(a,y) ∧ ¬p(y,a)), p(a,b), ¬p(b,a)"]
+    l2200 [label="∀y(p(a,y) ∧ ¬p(y,a)), p(a,a) ∧ ¬p(a,a)"]
+    l2300 [label="∀y(p(a,y) ∧ ¬p(y,a)), p(a,a), ¬p(a,a)"]
 
     l0000 -> {l1000, l2000}
     l1000 -> l1100 -> l1200 -> {l1210, l1220}
@@ -27,5 +27,5 @@ digraph G {
 
     l1210 -> x1211 [label="⊙" color=white]
     l1221 -> x1222 [label="⊙" color=white]
-    l2300 -> x2310 [label="⊙" color=white]
+    l2300 -> x2310 [label="×" color=white]
 }
