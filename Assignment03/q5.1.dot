@@ -1,0 +1,31 @@
+digraph G {
+    splines="FALSE";
+    edge [arrowhead=vee arrowsize=0.5]
+    node [shape="none"]
+    o1 [label=""]
+    x1211 [label=""]
+    x1222 [label=""]
+    x2310 [label=""]
+
+    l0000 [label="∀x∃y(p(x,y) ∧ ¬p(y,x)) → ∃x∀y(p(x,y) ∧ ¬p(y,x))"]
+    l1000 [label="¬(∀x∃y(p(x,y) ∧ ¬p(y,x)))"]
+    l1100 [label="¬∃y(p(a,y) ∧ ¬p(y,a))"]
+    l1200 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), ¬(p(a,b) ∧ ¬p(b,a))"]
+    l1210 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), ¬p(a,b)"]
+    l1220 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), ¬¬p(b,a)"]
+    l1221 [label="¬∃y(p(a,y) ∧ ¬p(y,a)), p(b,a)"]
+    
+    l2000 [label="∃x∀y(p(x,y) ∧ ¬p(y,x))"]
+    l2100 [label="∀y(p(a,y) ∧ ¬p(y,a))"]
+    l2200 [label="∀y(p(a,y) ∧ ¬p(y,a)), p(a,b) ∧ ¬p(b,a)"]
+    l2300 [label="∀y(p(a,y) ∧ ¬p(y,a)), p(a,b), ¬p(b,a)"]
+
+    l0000 -> {l1000, l2000}
+    l1000 -> l1100 -> l1200 -> {l1210, l1220}
+    l1220 -> l1221
+    l2000 -> l2100 -> l2200 -> l2300
+
+    l1210 -> x1211 [label="⊙" color=white]
+    l1221 -> x1222 [label="⊙" color=white]
+    l2300 -> x2310 [label="⊙" color=white]
+}
