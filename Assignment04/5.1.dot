@@ -1,0 +1,35 @@
+digraph G {
+    splines="FALSE";
+
+    r [label=<<u>ancestor(ayanda,bongani)</u>> shape=none]
+    r1 [label=<<u>parent(ayanda,bongani)</u>> shape=none]
+    r2 [label=<<u>parent(ayanda,z)</u>     ,ancestor(z,bongani)> shape=none]
+    r21 [label=<<u>ancestor(lerato,bongani)</u>> shape=none]
+    r211 [label=<<u>parent(lerato,bongani)</u>> shape=none]
+    r212 [label=<<u>parent(lerato,z)</u>     ,ancestor(z,bongani)> shape=none]
+    r2121 [label=<<u>ancestor(bongani,bongani)</u>> shape=none]
+    r22 [label=<<u>ancestor(thando,bongani)</u>> shape=none]
+    r221 [label=<<u>parent(thando,bongani)</u>> shape=none]
+    r222 [label=<<u>parent(thando,z)</u>     ,ancestor(z,bongani)> shape=none]
+    r->r1 [label="(8)\nx=ayanda\ny=bongani" arrowhead=none]
+    r->r2 [label="(9)\nx=ayanda\ny=bongani" arrowhead=none]
+    r2->r21 [label="(1)\nz=lerato" arrowhead=none]
+    r21->r211 [label="(8)" arrowhead=none]
+    r21->r212 [label="(9)" arrowhead=none]
+    r212->r2121 [label="(3)\nz=bongani" arrowhead=none]
+    r2->r22 [label="(2)\nz=thando" arrowhead=none]
+    r22->r221 [label="(8)" arrowhead=none]
+    r22->r222 [label="(9)" arrowhead=none]
+
+
+    r211box [label=□ shape=none]
+    r211 -> r211box [label="(3)" arrowhead=none]
+    r1cross [label=× shape=none]
+    r221cross [label=× shape=none]
+    r222cross [label=× shape=none]
+    r2121cross [label=× shape=none]
+    r1 -> r1cross [ arrowhead=none]
+    r221 -> r221cross [ arrowhead=none]
+    r222 -> r222cross [ arrowhead=none]
+    r2121 -> r2121cross [ arrowhead=none]
+}
